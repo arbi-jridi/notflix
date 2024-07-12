@@ -1,0 +1,27 @@
+<header>
+
+    <p-menubar [model]="items" sticky style="top: 0;">
+        <ng-template pTemplate="start">
+          <a routerLink="/" class="navbar-logo">
+            <img src="assets/images/logo.png" alt="" />
+          </a>
+        </ng-template>
+        <ng-template pTemplate="item" let-item let-root="root">
+            <a pRipple class="flex align-items-center p-menuitem-link" [routerLink]="item.route">
+                <span [class]="item.icon" ></span>
+                <span class="ml-2">{{ item.label }}</span>        
+            </a>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <div class="flex align-items-center gap-2">
+                <input type="text" pInputText placeholder="Search..." class="w-8rem sm:w-auto"  type="text"
+                pInputText
+                placeholder="Search..."
+                [(ngModel)]="searchValue"
+                (keyup)="searchChanged()"/>
+             
+            </div>
+        </ng-template>
+    </p-menubar>
+
+</header>

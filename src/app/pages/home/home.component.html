@@ -1,0 +1,71 @@
+
+  <div *ngIf="searchValue">
+    <div class="container">
+      <items-banner [items]="movies"></items-banner>
+  <div>
+    <p-paginator [rows]="24" [totalRecords]="10000" (onPageChange)="paginate($event)"></p-paginator>
+  </div>
+</div>
+
+</div>
+
+<div *ngIf="!searchValue">
+<slider [items]="popularMovies"></slider>
+
+<!-- <items-banner [items]="upcomingMovies" title="Upcoming Movies" ></items-banner>-->
+
+ <br>
+ <h2 style="padding: 10px;">Upcoming Movies</h2>
+<p-carousel [numVisible]="6"  [value]="upcomingMovies" [circular]="true" 
+[responsiveOptions]="responsiveOptions"  [autoplayInterval]="3000"  >
+ <ng-template *ngIf="upcomingMovies" let-movie pTemplate="movie">
+  <a class="item" [routerLink]="'/movie/' + movie.id">
+    <div class="item-rating">
+      <i class="app-icon">star</i>
+      <span>{{ movie.vote_average.toPrecision(1) }}</span
+      >/10
+    </div>
+    <div class="item-image">
+      <img [src]="imagesSizes.medium + movie.poster_path" alt="movies" [title]="movie.title" />
+    </div>
+    <div class="item-title">{{ movie.title }}</div>
+  </a>
+ </ng-template>
+</p-carousel>
+
+<items-banner [items]="topRatedMovies" title="Top Rated Movies"></items-banner>
+
+<br>
+<h2 style="padding: 10px;">Browse Movies  By  Category</h2>
+<div class="stock-ticker" >
+  <ul>
+    <li class="minus" *ngFor="let genre of genres">
+      <a class="genre-link" [routerLink]="'/movies/genres/' + genre.id"><span class="company">{{ genre.name }}</span></a>
+    </li>
+  </ul>
+</div>
+<br>
+
+<h2 style="padding: 10px;">Popular Tv Shows</h2>
+
+<p-carousel [numVisible]="6"  [value]="popularTvShows" [circular]="true" 
+[responsiveOptions]="responsiveOptions"  [autoplayInterval]="3000" >
+ <ng-template *ngIf="popularTvShows" let-show pTemplate="show">
+  <a class="item" [routerLink]="'/show/' + show.id">
+    <div class="item-rating">
+      <i class="app-icon">star</i>
+      <span>{{ show.vote_average.toPrecision(1) }}</span
+      >/10
+    </div>
+    <div class="item-image">
+      <img [src]="imagesSizes.medium + show.poster_path" alt="show" [title]="show.title"/>
+    </div>
+    <div class="item-title">{{ show.title }}</div>
+  </a>
+ </ng-template>
+
+</p-carousel>
+</div>
+
+<!-- <items-banner [items]="popularTvShows" title="Popular Tv Shows"></items-banner>
+ -->

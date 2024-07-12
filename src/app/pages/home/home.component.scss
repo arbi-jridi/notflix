@@ -1,0 +1,111 @@
+@import '../../../styles/colors';
+
+.item {
+  position: relative;
+  display: block;
+  min-height: 380px;
+  border-radius: 5px;
+  background-color: $bgColorLight;
+  //border: 1px solid $lightGray;
+  padding: 10px;
+
+  &-image {
+    img {
+      width: 100%;
+      border-radius: 5px;
+      height: 375px;
+      object-fit: cover;
+    }
+  }
+
+  &-rating {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(121, 120, 120, 0.26);
+    border-radius: 5px;
+    padding: 5px 10px;
+
+    .app-icon {
+      margin-right: 5px;
+      color: #d4af37;
+    }
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin: 0.5rem;
+    height: 30px;
+  }
+}
+
+.item:hover {
+  border: 1px solid red;
+  transform: translateY(-8px);
+  transition: all 0.3s ease-in-out;
+
+  .item-title {
+    color: red;
+    }
+
+}
+
+.item-title:hover {
+  color: red;
+  }
+
+  
+.stock-ticker {
+  font-size: 15px;
+  padding-block: 8px;
+  border-block: 1px solid;
+  overflow: hidden;
+  user-select: none;
+
+  --gap: 20px;
+  display: flex;
+  gap: var(--gap);
+}
+
+.stock-ticker ul {
+  list-style: none;
+  flex-shrink: 0;
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap);
+
+  animation: scroll 25s linear infinite;
+}
+
+.stock-ticker:hover ul {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+.genre-link {
+  padding: 5px;
+  display: flex;
+  width: 100%;
+  background-color: $primaryColor;
+  color: $bgColor;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  border:solid 1px $primaryColor;
+  border-radius: 5px;
+}
+
+.genre-link:hover {
+  background-color: white;
+}

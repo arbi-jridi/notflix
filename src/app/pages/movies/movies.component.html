@@ -1,0 +1,9 @@
+<div class="container" >
+      <items-banner [items]="movies" *ngIf="searchValue"></items-banner>
+      <items-banner [items]="movies" *ngIf="!searchValue" ></items-banner>
+  <div>
+    <p-paginator [rows]="50" [totalRecords]="10000" (onPageChange)="paginate($event)"></p-paginator>
+  </div>
+</div>
+
+
