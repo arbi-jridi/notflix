@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "movies-app": {
+    "notflix": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "movies-app:build:production"
+              "browserTarget": "notflix:build:production"
             },
             "development": {
-              "browserTarget": "movies-app:build:development"
+              "browserTarget": "notflix:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "movies-app:build"
+            "browserTarget": "notflix:build"
           }
         },
         "test": {
@@ -108,5 +108,5 @@
       }
     }
   },
-  "defaultProject": "movies-app"
+  "defaultProject": "notflix"
 }
