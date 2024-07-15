@@ -39,7 +39,7 @@
 <h2 style="padding: 10px;">Browse Movies  By  Category</h2>
 <div class="stock-ticker" >
   <ul>
-    <li class="minus" *ngFor="let genre of genres">
+    <li class="minus" *ngFor="let genre of moviesgenres">
       <a class="genre-link" [routerLink]="'/movies/genres/' + genre.id"><span class="company">{{ genre.name }}</span></a>
     </li>
   </ul>
@@ -65,6 +65,16 @@
  </ng-template>
 
 </p-carousel>
+<br>
+<h2 style="padding: 10px;">Browse Tv Shows By Category</h2>
+<div class="stock-ticker" >
+  <ul>
+    <li class="minus" *ngFor="let genre of showsgenres">
+      <a class="genre-link" [routerLink]="'/shows/genres/' + genre.id"><span class="company">{{ genre.name }}</span></a>
+    </li>
+  </ul>
+</div>
+<br>
 </div>
 
 <!-- <items-banner [items]="popularTvShows" title="Popular Tv Shows"></items-banner>

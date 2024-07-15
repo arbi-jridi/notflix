@@ -34,3 +34,8 @@ export interface ShowVideo {
   site: string;
   key: string;
 }
+
+export interface Genre {
+  id: number;
+  name: string;
+}

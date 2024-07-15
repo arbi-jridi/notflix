@@ -73,6 +73,7 @@ export class MoviesComponent implements OnInit , OnChanges{
         this.getPagedMovies(pageNumber);
       }
     }
+    window.scrollTo(0, 0);
   }
 
   searchChanged() {

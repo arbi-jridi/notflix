@@ -83,6 +83,7 @@ export class ShowsComponent implements OnInit {
         this.getPagedShows(pageNumber);
       }
     }
+    window.scrollTo(0, 0);
   }
 
   searchChanged() {

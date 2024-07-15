@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit , OnChanges {
   topRatedMovies: Movie[] = [];
   popularTvShows: Tv[] = [];
   movies: Movie[] = [];
-  genres: any[] = [];
+  moviesgenres: any[] = [];
+  showsgenres: any[] = [];
   genreId: string | null = null;
   readonly imagesSizes = IMAGES_SIZES;
   responsiveOptions: any[]=[];
@@ -53,7 +54,11 @@ export class HomeComponent implements OnInit , OnChanges {
     });
 
     this.moviesService.getMoviesGenres().subscribe((genresData) => {
-      this.genres = genresData;
+      this.moviesgenres = genresData;
+    });
+
+    this.ShowsService.getShowsGenres().subscribe((genresData) => {
+      this.showsgenres = genresData;
     });
 
     this.responsiveOptions = [
@@ -116,6 +121,7 @@ export class HomeComponent implements OnInit , OnChanges {
         this.getPagedMovies(pageNumber);
       }
     }
+  window.scrollTo(0, 0);
   }
   
     getMoviesByGenre(genreId: string, page: number) {
